@@ -2,7 +2,7 @@
 <!-- <style>
 body{
 
-background-image: url("https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Backgroud.jpeg");
+background-image: url("https://raw.githubusercontent.com/Config/main/Backgroud.jpeg");
   background-repeat: repeat;
 .container{
 display: flex;
