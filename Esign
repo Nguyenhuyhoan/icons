@@ -1,9 +1,8 @@
 
 <!-- <style>
 body{
-
 background-image: url("https://raw.biogithubusercontent.com/Config/main/Backgroud.jpeg");
-  background-repeat: repeat;
+background-repeat: repeat;
 .container{
 display: flex;
 flex-direction: column;
@@ -52,7 +51,6 @@ border: 1px solid #ccc;
 border-radius: 30px;
 font-size: 50px; 
 color: #59450f;
-
 height: 60px;
 padding: 25px;
 border: 1px solid #ccc;
@@ -67,7 +65,6 @@ box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
 text-align: center;
 justify-content: center;
 align-items: center;
-
 font-size: 30px;
 line-height: 1; /* văn bản trên cách vb dưới */
 margin-bottom: 0px;
@@ -78,7 +75,6 @@ margin:3px;
 display:inline-block;
 padding-top: 10px;
 padding-bottom: 10px;
-
 font-size: 55px;
 line-height: 1.5;
 margin-bottom: 0px;
@@ -90,7 +86,6 @@ font-weight: bold;
 display:inline-block;
 padding-top: 10px;
 padding-bottom: 10px;
-
 width: 870px;
 height: 100px;
 margin: 20px auto;
@@ -103,7 +98,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 font-size: 45px;
-
 width: 820px;
 height: 60px;
 margin: 20px auto;
@@ -117,7 +111,6 @@ justify-content: center;
 align-items: center;
 font-size: 45px; 
 color: #CC00FF;
-
 width: 900px auto;
 height: 300px;
 margin: 20px auto;
@@ -130,7 +123,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 font-size: 45px; 
-
 height: auto;
 margin: 20px auto;
 padding: 20px;
@@ -143,7 +135,6 @@ justify-content: center;
 align-items: center;
 font-size: 45px; 
 color: #CC00FF;
-
   height: 100px;
   margin: 20px auto;
   padding: 20px;
@@ -156,7 +147,6 @@ color: #CC00FF;
   align-items: center;
   color: #CC00FF;
   font-size: 47px;
-
   margin: 20px auto;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0);
