@@ -117,7 +117,6 @@ justify-content: center;
 align-items: center;
 font-size: 45px; 
 color: #CC00FF;
-
   width: 400px;
   height: 100px;
   margin: 20px auto;
@@ -132,7 +131,6 @@ color: #CC00FF;
   color: #CC00FF;
   font-size: 47px;
 font-weight: bold;
-
 width: 180px;
 height: 100px;
 margin: 20px auto;
@@ -146,7 +144,6 @@ justify-content: center;
 align-items: center;
 color: #CC00FF;
 font-size: 50px;
-
 width: 370px;
 height: 60px;
 margin: 20px auto;
@@ -161,7 +158,6 @@ align-items: center;
 color: #CC00FF;
 font-size: 50px;
 font-weight: bold;
-
 padding: 20px;
 border: 0px solid #ccc;
 border-radius: 20px;
@@ -175,53 +171,6 @@ text-align: center;
 justify-content: center;
 align-items: center;
 <🌼>
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-<key>items</key>
-<array>
-<dict>
-<key>assets</key>
-<array>
-<dict>
-<key>kind</key>
-<string>software-package</string>
-<key>url</key>
-<string>https://github.com/Nguyenhuyhoan/TrollX/raw/main/TrollX%20Anbang_1.0.3.ipa</string>
-</dict>
-<dict>
-<key>kind</key>
-<string>display-image</string>
-<key>needs-shine</key>
-<true/>
-<key>url</key>
-<string>https://raw.githubusercontent.com/Nguyenhuyhoan/Yiutiubi/main/Youtube.png</string>
-</dict>
-<dict>
-<key>kind</key>
-<string>full-size-image</string>
-<key>needs-shine</key>
-<true/>
-<key>url</key>
-<string>https://raw.githubusercontent.com/Nguyenhuyhoan/Yiutiubi/main/Youtube.png</string>
-</dict>
-</array>
-<key>metadata</key>
-<dict>
-<key>bundle-identifier</key>
-<string>Anbang</string>
-<key>bundle-version</key>
-<string>Vvv</string>
-<key>kind</key>
-<string>software</string>
-<key>title</key>
-<string>TrollX Anbang</string>
-</dict>
-</dict>
-</array>
-</dict>
-</plist>
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -598,53 +547,6 @@ var inputs = {
       if (isFilled) {
 
 <🌼>
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-<key>items</key>
-<array>
-<dict>
-<key>assets</key>
-<array>
-<dict>
-<key>kind</key>
-<string>software-package</string>
-<key>url</key>
-<string>https://github.com/Nguyenhuyhoan/TrollX/raw/main/TrollX%20Anbang_1.0.3.ipa</string>
-</dict>
-<dict>
-<key>kind</key>
-<string>display-image</string>
-<key>needs-shine</key>
-<true/>
-<key>url</key>
-<string>https://raw.githubusercontent.com/Nguyenhuyhoan/Yiutiubi/main/Youtube.png</string>
-</dict>
-<dict>
-<key>kind</key>
-<string>full-size-image</string>
-<key>needs-shine</key>
-<true/>
-<key>url</key>
-<string>https://raw.githubusercontent.com/Nguyenhuyhoan/Yiutiubi/main/Youtube.png</string>
-</dict>
-</array>
-<key>metadata</key>
-<dict>
-<key>bundle-identifier</key>
-<string>Anbang</string>
-<key>bundle-version</key>
-<string>Vvv</string>
-<key>kind</key>
-<string>software</string>
-<key>title</key>
-<string>TrollX Anbang</string>
-</dict>
-</dict>
-</array>
-</dict>
-</plist>
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -1135,34 +1037,6 @@ defaultTab.className += " active";
 <string>TrollX Hena</string>
 </dict>
 </dict>
-<dict>
-<key>assets</key>
-<array>
-<dict>
-<key>kind</key>
-<string>software-package</string>
-<key>url</key>
-<string>https://github.com/Nguyenhuyhoan/TrollX/raw/main/TrollX%20Anbang_1.0.3.ipa</string>
-</dict>
-<dict>
-<key>kind</key>
-<string>display-image</string>
-<key>needs-shine</key>
-<true/>
-<key>url</key>
-<string>https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Esign.jpg</string>
-</dict>
-</array>
-<key>metadata</key>
-<dict>
-<key>bundle-identifier</key>
-<string>Anbang</string>
-<key>kind</key>
-<string>software</string>
-<key>title</key>
-<string>TrollX Anbang</string>
-</dict>
-</dict>
 <!-- bbbbbbb?body{background-image: url("https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Backgroud.jpeg");
  
 display: flex;
@@ -1409,53 +1283,6 @@ th, which is not enough for your use. However, 300,000 queries are more than eno
 <iframe class="rounded center-video" width="900" height="1950" src="" frameborder="0" allowfullscreen></iframe> 
 
 <🌼>
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-<key>items</key>
-<array>
-<dict>
-<key>assets</key>
-<array>
-<dict>
-<key>kind</key>
-<string>software-package</string>
-<key>url</key>
-<string>https://github.com/Nguyenhuyhoan/TrollX/raw/main/TrollX%20Anbang_1.0.3.ipa</string>
-</dict>
-<dict>
-<key>kind</key>
-<string>display-image</string>
-<key>needs-shine</key>
-<true/>
-<key>url</key>
-<string>https://raw.githubusercontent.com/Nguyenhuyhoan/Yiutiubi/main/Youtube.png</string>
-</dict>
-<dict>
-<key>kind</key>
-<string>full-size-image</string>
-<key>needs-shine</key>
-<true/>
-<key>url</key>
-<string>https://raw.githubusercontent.com/Nguyenhuyhoan/Yiutiubi/main/Youtube.png</string>
-</dict>
-</array>
-<key>metadata</key>
-<dict>
-<key>bundle-identifier</key>
-<string>Anbang</string>
-<key>bundle-version</key>
-<string>Vvv</string>
-<key>kind</key>
-<string>software</string>
-<key>title</key>
-<string>TrollX Anbang</string>
-</dict>
-</dict>
-</array>
-</dict>
-</plist>
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
