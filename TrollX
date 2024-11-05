@@ -1,8 +1,7 @@
 
 <!-- <style>
 ckground-image: url("https://raw.hygithubusercontent.com/Config/main/Backgroud.jpeg");
-  background-repeat: repeat;
-
+background-repeat: repeat;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -13,7 +12,6 @@ padding: 10px; /* không sửa*/
 background-color: rgba(255, 255, 255, 0.8);
 border-radius: 30px;
 box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -24,7 +22,6 @@ padding: 10px; /* không sửa*/
 background-color: rgba(255, 255, 255, 0.8);
 border-radius: 30px;
 box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-
 width: 850px;
 margin: 20px auto;
 padding: 20px;
@@ -35,7 +32,6 @@ text-align: center;
 display: flex;
 justify-content: center;
 align-items: center;
-
 width: 450px;
 height: 80px;
 margin: 20px auto;
@@ -47,7 +43,6 @@ text-align: center;
 display: flex;
 justify-content: center;
 align-items: center;
-
 display: none;
 padding: 30px; 
 border: 1px solid #ccc;
@@ -55,7 +50,6 @@ border-radius: 30px;
 font-size: 50px; 
 color: #59450f;
 width: 900px;
-
 height: 60px;
 padding: 25px;
 border: 1px solid #ccc;
@@ -70,12 +64,10 @@ box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
 text-align: center;
 justify-content: center;
 align-items: center;
-
 text-align: center;
 font-size: 55px;
 margin-bottom: 20px;
 color: #CC00FF;
-
 font-size: 55px;
 line-height: 1.5;
 margin-bottom: 0px;
@@ -87,7 +79,6 @@ font-weight: bold;
 display:inline-block;
 padding-top: 10px;
 padding-bottom: 10px;
-
 width: 870px;
 height: 100px;
 margin: 20px auto;
@@ -100,7 +91,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 font-size: 45px;
-
 width: 820px;
 height: 60px;
 margin: 20px auto;
@@ -115,7 +105,6 @@ align-items: center;
 font-size: 45px; 
 color: #CC00FF;
 font-weight: bold;
-
 width: 900px auto;
 height: 300px;
 margin: 20px auto;
