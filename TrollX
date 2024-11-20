@@ -897,118 +897,15 @@ defaultTab.className += " active";
 
 <link rel="stylesheet" type="text/css" href="http://opamaaa.wap.sh/files/xqc-full.css" />
 <xt:" /> -->
-<dict>
-<key>assets</key>
-<array>
-<dict>
-<key>kind</key>
-<string>software-package</string>
-<key>url</key>
-<string>https://github.com/Nguyenhuyhoan/TrollX/raw/main/TrollX%20China_1.0.3.ipa</string>
-</dict>
-<dict>
-<key>kind</key>
-<string>display-image</string>
-<key>needs-shine</key>
-<true/>
-<key>url</key>
-<string>https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Esign.jpg</string>
-</dict>
-</array>
-<key>metadata</key>
-<dict>
-<key>bundle-identifier</key>
-<string>China</string>
-<key>kind</key>
-<string>software</string>
-<key>title</key>
-<string>TrollX China Contin</string>
-</dict>
-</dict>
-<dict>
-<key>assets</key>
-<array>
-<dict>
-<key>kind</key>
-<string>software-package</string>
-<key>url</key>
-<string>https://github.com/Nguyenhuyhoan/TrollX/raw/main/TrollX%20Sunshi_1.0.3.ipa</string>
-</dict>
-<dict>
-<key>kind</key>
-<string>display-image</string>
-<key>needs-shine</key>
-<true/>
-<key>url</key>
-<string>https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Esign.jpg</string>
-</dict>
-</array>
-<key>metadata</key>
-<dict>
-<key>bundle-identifier</key>
-<string>Sunshi</string>
-<key>kind</key>
-<string>software</string>
-<key>title</key>
-<string>TrollX Sunshi</string>
-</dict>
-</dict>
-<dict>
-<key>assets</key>
-<array>
-<dict>
-<key>kind</key>
-<string>software-package</string>
-<key>url</key>
-<string>https://github.com/Nguyenhuyhoan/TrollX/raw/main/TrollX%20VNam_1.0.3.ipa</string>
-</dict>
-<dict>
-<key>kind</key>
-<string>display-image</string>
-<key>needs-shine</key>
-<true/>
-<key>url</key>
-<string>https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Esign.jpg</string>
-</dict>
-</array>
-<key>metadata</key>
-<dict>
-<key>bundle-identifier</key>
-<string>VNam</string>
-<key>kind</key>
-<string>software</string>
-<key>title</key>
-<string>TrollX VNam</string>
-</dict>
-</dict>
-<dict>
-<key>assets</key>
-<array>
-<dict>
-<key>kind</key>
-<string>software-package</string>
-<key>url</key>
-<string>https://github.com/Nguyenhuyhoan/TrollX/raw/main/TrollX%20CQing_1.0.3.ipa</string>
-</dict>
-<dict>
-<key>kind</key>
-<string>display-image</string>
-<key>needs-shine</key>
-<true/>
-<key>url</key>
-<string>https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Esign.jpg</string>
-</dict>
-</array>
-<key>metadata</key>
-<dict>
-<key>bundle-identifier</key>
-<string>CQing</string>
-<key>kind</key>
-<string>software</string>
-<key>title</key>
-<string>TrollX CQing</string>
-</dict>
-</dict>
+
+<!--🌟--><dict><key>assets</key><array><dict><key>kind</key><string>software-package</string><key>url</key><string>https://github.com/Nguyenhuyhoan/TrollX/raw/main/TrollX%20China_1.0.3.ipa</string></dict><dict><key>kind</key><string>display-image</string><key>needs-shine</key><true/><key>url</key><string>https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Esign.jpg</string></dict></array><key>metadata</key><dict><key>bundle-identifier</key><string>China</string><key>kind</key><string>software</string><key>title</key><string>TrollX China Contin</string></dict></dict>
+
+<!--🌟--><dict><key>assets</key><array><dict><key>kind</key><string>software-package</string><key>url</key><string>https://github.com/Nguyenhuyhoan/TrollX/raw/main/TrollX%20Sunshi_1.0.3.ipa</string></dict><dict><key>kind</key><string>display-image</string><key>needs-shine</key><true/><key>url</key><string>https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Esign.jpg</string></dict></array><key>metadata</key><dict><key>bundle-identifier</key><string>Sunshi</string><key>kind</key><string>software</string><key>title</key><string>TrollX Sunshi</string></dict></dict>
+
+<!--🌟--><dict><key>assets</key><array><dict><key>kind</key><string>software-package</string><key>url</key><string>https://github.com/Nguyenhuyhoan/TrollX/raw/main/TrollX%20VNam_1.0.3.ipa</string></dict><dict><key>kind</key><string>display-image</string><key>needs-shine</key><true/><key>url</key><string>https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Esign.jpg</string></dict></array><key>metadata</key><dict><key>bundle-identifier</key><string>VNam</string><key>kind</key><string>software</string><key>title</key><string>TrollX VNam</string></dict></dict>
+
+<!--🌟--><dict><key>assets</key><array><dict><key>kind</key><string>software-package</string><key>url</key><string>https://github.com/Nguyenhuyhoan/TrollX/raw/main/TrollX%20CQing_1.0.3.ipa</string></dict><dict><key>kind</key><string>display-image</string><key>needs-shine</key><true/><key>url</key><string>https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Esign.jpg</string></dict></array><key>metadata</key><dict><key>bundle-identifier</key><string>CQing</string><key>kind</key><string>software</string><key>title</key><string>TrollX CQing</string></dict></dict>
+
 <!-- bbbbbbb?body{background-image: url("https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Backgroud.jpeg");
  
 display: flex;
