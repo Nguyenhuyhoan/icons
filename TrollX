@@ -1009,7 +1009,6 @@ defaultTab.className += " active";
 <string>TrollX CQing</string>
 </dict>
 </dict>
-<dict>
 <!-- bbbbbbb?body{background-image: url("https://raw.githubusercontent.com/Nguyenhuyhoan/Config/main/Backgroud.jpeg");
  
 display: flex;
