@@ -1,5 +1,5 @@
 <!-- <style>
-ckground-ghhhgimage: url("https://raw.hygithubusercontent.com/Config/main/Backgroud.jpeg");
+ground-image: url("https://raw.hygithubusercontent.com/Config/main/Backgroud.jpeg");
 background-repeat: repeat;
 display: flex;
 flex-direction: column;
