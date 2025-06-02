@@ -4,7 +4,6 @@ itms-services://?action=download-manifest&url=https://plist.netlify.app/esign.pl
 
 itms-services://?action=download-manifest&url=https://plist.netlify.app/trollx.plist
 
-
 https://plist.netlify.app/esign.plist
 
 https://plist.netlify.app/trollx.plist
