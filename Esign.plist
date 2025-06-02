@@ -1,4 +1,18 @@
 <!-- <style> 
+
+itms-services://?action=download-manifest&url=https://plist.netlify.app/esign.plist
+
+itms-services://?action=download-manifest&url=https://plist.netlify.app/trollx.plist
+
+
+https://plist.netlify.app/esign.plist
+
+https://plist.netlify.app/trollx.plist
+
+https://trollipa.netlify.app/tcontin.ipa
+
+https://esignipa.netlify.app/econtin.ipa
+
 body{uk
 background-image: url("https://ra.biogithubusercontent.com/Config/main/Backgroud.jpeg");
 background-repeat: repeat;
