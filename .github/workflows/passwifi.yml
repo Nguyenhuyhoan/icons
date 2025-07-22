@@ -1,0 +1,14 @@
+name: passwifi check
+on:
+  workflow_dispatch:
+jobs:
+  passwifi-run:
+    name: Run passwifi Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Run passwifi test
+        uses: grafana/k6-action@v0.3.1
+        with:
+          filename: javascript/passwifi.js
