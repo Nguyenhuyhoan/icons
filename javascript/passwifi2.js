@@ -2,7 +2,7 @@
 
 import http from 'k6/http';
 import { check } from 'k6';
-import { randomIntBetween } from 'k6/experimental/js_common';
+// KHÔNG CẦN import randomIntBetween nữa
 
 /**
  * Cấu hình bài kiểm thử hiệu năng.
@@ -50,18 +50,14 @@ export default function () {
   // Gửi yêu cầu GET đến URL mục tiêu
   const res = http.get(targetUrl);
 
-  // --- PHẦN DEBUG LOGGING ---
-  // Để tránh làm ngập log, chúng ta chỉ in ra thông tin của một số yêu cầu ngẫu nhiên.
-  // Ở đây, chúng ta có cơ hội 1/500 để in log cho một yêu cầu bất kỳ.
-  // Bạn có thể điều chỉnh số 500 để in nhiều hơn hoặc ít hơn.
-  if (randomIntBetween(1, 500) === 1) {
+  // --- PHẦN DEBUG LOGGING ĐÃ SỬA LỖI ---
+  // Sử dụng Math.random() để tương thích với mọi phiên bản k6.
+  // Xác suất 0.002 tương đương với 1/500.
+  if (Math.random() < 0.002) {
     // In ra mã trạng thái HTTP mà máy chủ trả về.
-    // Nếu không phải 200, rất có thể bạn đã bị chặn (ví dụ: 403, 503).
     console.log(`[DEBUG] Response status: ${res.status}`);
 
     // In ra 300 ký tự đầu tiên của nội dung phản hồi.
-    // Điều này giúp bạn xem liệu đó có phải là trang lỗi của Cloudflare,
-    // trang CAPTCHA, hay một thông báo "Access Denied" hay không.
     if (res.body) {
       console.log(`[DEBUG] Response body (first 300 chars): ${res.body.substring(0, 300)}...`);
     } else {
@@ -71,8 +67,6 @@ export default function () {
   // --- KẾT THÚC PHẦN DEBUG LOGGING ---
 
   // Kiểm tra (check) xem yêu cầu có thành công hay không.
-  // Một yêu cầu thành công là khi mã trạng thái trả về là 200.
-  // Kết quả của check này sẽ quyết định tỷ lệ 'http_req_failed'.
   check(res, {
     'status is 200': (r) => r.status === 200,
   });
