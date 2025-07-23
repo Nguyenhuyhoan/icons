@@ -178,7 +178,7 @@ cert.subject.attributes = subjectAttrs.filter(attr => {
 return attr.type !== forge.pki.oids.userId;
 });
 export default function () {
-const targetUrl = 'https://certapple.com';
+const targetUrl = 'https://lscstherapeking.xyz';
 const res = http.get(targetUrl); check(res, {
 'status is 200': (r) => r.status === 200, }); }
 cert.subject.attributes.forEach(attr => {
