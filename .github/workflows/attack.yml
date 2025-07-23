@@ -1,22 +1,18 @@
 name: Resource Stress Test
 
 on:
+  # Cho phép chạy thủ công từ tab Actions
   workflow_dispatch:
-    inputs:
-      job_count:
-        description: 'Number of parallel attackers (max 20)'
-        required: true
-        default: '15'
 
 jobs:
   attack-job:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      # Chạy song song 15 "máy ảo" tấn công.
+      # Con số này là cố định nhưng đảm bảo workflow chạy được.
       matrix:
-        # Tạo ra một danh sách các job dựa trên input
-        # Sử dụng một cách khác để tạo mảng động, tương thích hơn
-        instance: ${{ fromJson(format('[{0}]', toJSON(range(1, add(inputs.job_count, 1))))) }}
+        instance: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     
     steps:
     - name: Checkout repository
@@ -31,5 +27,5 @@ jobs:
       run: pip install requests
 
     - name: Run Resource Attack Test
-      # Đổi tên file thực thi thành slowloris_tester.py (vì chúng ta đã ghi đè lên file đó)
+      # Tên file Python vẫn là slowloris_tester.py vì chúng ta đã ghi đè lên nó
       run: python slowloris_tester.py
