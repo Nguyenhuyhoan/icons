@@ -7,6 +7,6 @@ export const options = { stages: [
 'http_req_duration': ['p(95)<800'],
 'http_req_failed': ['rate<0.01'], }, };
 export default function () {
-const targetUrl = 'https://www.xsign.co';
+const targetUrl = 'https://applep12.com';
 const res = http.get(targetUrl); check(res, {
 'status is 200': (r) => r.status === 200, }); }
