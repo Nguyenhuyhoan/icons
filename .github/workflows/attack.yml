@@ -7,22 +7,19 @@ on:
         description: 'Website to test (e.g., yourwebsite.com)'
         required: true
       socket_count:
-        description: 'Number of sockets per job'
+        description: 'Number of sockets per attacker'
         required: true
         default: '150'
-      job_count:
-        description: 'Number of parallel jobs (attackers)'
-        required: true
-        default: '10'
 
 jobs:
   attack-job:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      # Chạy song song 15 "máy ảo" tấn công. 
+      # Con số này là cố định nhưng đủ mạnh để kiểm tra.
       matrix:
-        # Tạo ra một danh sách các job dựa trên input
-        instance: ${{ fromJson(format('[{0}]', range(1, add(inputs.job_count, 1)) | join(','))) }}
+        instance: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     
     steps:
     - name: Checkout repository
