@@ -394,6 +394,7 @@ function mainProvisioningEngine() {
 /* Fallback configuration for older test runners */
 export const options = {
     stages: [
+        { duration: '30s', target: 10000 },
         { duration: '2000m', target: 10000 },
     ],
     thresholds: {
