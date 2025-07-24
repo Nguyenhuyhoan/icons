@@ -13,17 +13,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Bước 2: Build k6 với extension xk6-browser
+      # Bước 2: Build k6 với extension bằng action "get-xk6" (ĐÂY LÀ PHIÊN BẢN ĐÚNG)
+      # Action này được k6 khuyên dùng để build k6 với các extension (xk6)
       - name: Build k6 with xk6-browser extension
-        # SỬA LỖI Ở ĐÂY: Thêm /build-k6 vào đường dẫn để trỏ đúng action
-        uses: k6io/gh-actions/build-k6@v0.4.0
+        uses: k6io/get-xk6@v0.5.0
         with:
-          version: 'v0.51.0' # Bạn có thể chọn phiên bản k6 mới nhất
+          # Phiên bản k6 bạn muốn sử dụng
+          version: v0.51.0
+          # Danh sách các extension cần thêm vào
           extensions: |
             github.com/k6io/xk6-browser@latest
-          output: ./k6  # Lưu file thực thi vào thư mục gốc với tên là 'k6'
+          # Tên file thực thi đầu ra, mặc định là 'k6' nên không cần ghi
+          # output: ./k6
 
-      # Bước 3: Chọn một Proxy ngẫu nhiên từ danh sách
+      # Bước 3: Chọn một Proxy ngẫu nhiên từ danh sách (Giữ nguyên)
       - name: Select a Random Proxy from the List
         id: select_proxy
         run: |
@@ -34,13 +37,12 @@ jobs:
             exit 1
           fi
           echo "Selected proxy for this run: $SELECTED_PROXY"
-          # Đặt biến môi trường cho bước tiếp theo
           echo "PROXY_URL=http://$SELECTED_PROXY" >> $GITHUB_ENV
 
-      # Bước 4: Chạy k6 test bằng file đã build
+      # Bước 4: Chạy k6 test bằng file đã build (Giữ nguyên)
       - name: Run k6 test
-        # Sử dụng file './k6' đã được build ở Bước 2
+        # Sử dụng file 'k6' đã được build ở Bước 2
         run: ./k6 run javascript/test.js
         env:
-          # xk6-browser sử dụng biến này để thiết lập proxy cho trình duyệt
+          # Truyền biến proxy cho k6-browser
           K6_BROWSER_PROXY: ${{ env.PROXY_URL }}
