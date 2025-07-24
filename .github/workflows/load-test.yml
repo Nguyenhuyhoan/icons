@@ -39,7 +39,7 @@ jobs:
       - name: Run k6 test
         uses: k6io/k6-action@v0.2.0
         with:
-          script: script.js # Đường dẫn tới file k6 test của bạn
+          script: 🅾️script.js # Đường dẫn tới file k6 test của bạn
         env:
           # k6 sẽ tự động sử dụng proxy được định nghĩa trong biến môi trường này
           K6_HTTP_PROXY: ${{ env.PROXY_URL }}
