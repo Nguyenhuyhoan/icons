@@ -1,5 +1,5 @@
 # .github/workflows/load-test.yml
-name: Load Test with Random Free Proxy
+name: Test Random Free Proxy
 on:
   workflow_dispatch:
 jobs:
