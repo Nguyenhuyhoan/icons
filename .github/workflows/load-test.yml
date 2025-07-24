@@ -1,0 +1,45 @@
+name: Load Test with Random Free Proxy
+
+on:
+  workflow_dispatch: # Cho phép chạy thủ công từ tab Actions
+
+jobs:
+  k6_load_test:
+    name: Run k6 Load Test
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code từ repo của bạn
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Step 2: Đọc danh sách proxy từ Secret và chọn ngẫu nhiên một cái
+      - name: Select a Random Proxy from the List
+        id: select_proxy # Đặt ID để các step sau có thể tham chiếu
+        run: |
+          # Đọc danh sách proxy từ Secret vào một biến
+          PROXY_LIST="${{ secrets.FREE_PROXY_LIST }}"
+          
+          # Dùng lệnh `shuf -n 1` để chọn ngẫu nhiên 1 dòng (1 proxy) từ danh sách
+          SELECTED_PROXY=$(echo "$PROXY_LIST" | shuf -n 1)
+          
+          # Kiểm tra xem có chọn được proxy không
+          if [ -z "$SELECTED_PROXY" ]; then
+            echo "::error::Could not select a proxy from the list."
+            exit 1
+          fi
+          
+          # In ra proxy được chọn để debug
+          echo "Selected proxy for this run: $SELECTED_PROXY"
+          
+          # Xuất URL của proxy ra môi trường của job để step sau sử dụng
+          echo "PROXY_URL=http://$SELECTED_PROXY" >> $GITHUB_ENV
+
+      # Step 3: Chạy k6 test với proxy đã được chọn
+      - name: Run k6 test
+        uses: k6io/k6-action@v0.2.0
+        with:
+          script: script.js # Đường dẫn tới file k6 test của bạn
+        env:
+          # k6 sẽ tự động sử dụng proxy được định nghĩa trong biến môi trường này
+          K6_HTTP_PROXY: ${{ env.PROXY_URL }}
