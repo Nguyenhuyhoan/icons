@@ -1,18 +1,14 @@
-# load-test.yml (ĐÃ SỬA LỖI)
+# .github/workflows/load-test.yml
 name: Load Test with Random Free Proxy
-
 on:
   workflow_dispatch:
-
 jobs:
   k6_load_test:
     name: Run k6 Load Test
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Select a Random Proxy from the List
         id: select_proxy
         run: |
@@ -28,7 +24,6 @@ jobs:
       - name: Run k6 test
         uses: k6io/k6-action@v0.2.0
         with:
-          # Đảm bảo tên file là 'script.js' và không có ký tự lạ
-          script: script/script.js 
+          script: javascript/test.js 
         env:
           K6_HTTP_PROXY: ${{ env.PROXY_URL }}
