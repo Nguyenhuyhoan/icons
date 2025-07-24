@@ -1,7 +1,7 @@
 
 # .github/workflows/load-test.yml
 
-name: Load Test with k6 Browser and Random Proxy (Manual Build)
+name: Load Test with k6 Browser and Random Proxy (Pre-built Binary)
 on:
   workflow_dispatch:
 
@@ -14,25 +14,36 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Bước 2: Cài đặt môi trường Go
-      # Chúng ta cần Go để build k6 từ source
-      - name: Setup Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.21' # Phiên bản Go ổn định
-
-      # Bước 3: Tự build k6 với extension (thay thế cho action get-xk6)
-      - name: Manually build k6 with xk6-browser
+      # Bước 2: Tải về phiên bản k6 đã được build sẵn với xk6-browser
+      # Đây là cách đáng tin cậy nhất, tránh mọi vấn đề về build và dependency.
+      - name: Download and Extract Pre-built k6 with xk6-browser
         run: |
-          echo "Installing xk6, the k6 extension builder..."
-          go install go.k6.io/xk6/cmd/xk6@latest
+          # Đặt link URL của phiên bản k6 mới nhất có xk6-browser
+          # Bạn có thể tìm link này tại: https://github.com/k6io/xk6-browser/releases
+          K6_BROWSER_URL="https://github.com/k6io/xk6-browser/releases/download/v1.3.0/k6-v0.51.0-browser-v1.3.0-linux-amd64.tar.gz"
           
-          echo "Building k6 with xk6-browser extension..."
-          # Lệnh này sẽ build k6 phiên bản v0.51.0 và thêm extension xk6-browser
-          # File thực thi 'k6' sẽ được tạo trong thư mục hiện tại
-          ~/go/bin/xk6 build v0.51.0 --with github.com/k6io/xk6-browser@latest
+          echo "Downloading k6 from $K6_BROWSER_URL"
+          # Tải file về bằng curl
+          curl -L -o k6-browser.tar.gz "$K6_BROWSER_URL"
+          
+          echo "Extracting k6 binary..."
+          # Giải nén file tar.gz
+          tar -xzf k6-browser.tar.gz
+          
+          echo "Moving k6 binary to current directory..."
+          # File k6 nằm trong một thư mục con, di chuyển nó ra thư mục gốc
+          # Dùng wildcard (*) để nó tự động khớp với tên thư mục phiên bản
+          mv k6-v*-browser-v*/k6 .
+          
+          echo "Making k6 binary executable..."
+          # Cấp quyền thực thi cho file
+          chmod +x k6
+          
+          echo "Verifying k6 version..."
+          # Kiểm tra xem file k6 có chạy được không
+          ./k6 version
 
-      # Bước 4: Chọn Proxy ngẫu nhiên
+      # Bước 3: Chọn Proxy ngẫu nhiên (Giữ nguyên)
       - name: Select a Random Proxy from the List
         id: select_proxy
         run: |
@@ -45,7 +56,7 @@ jobs:
           echo "Selected proxy for this run: $SELECTED_PROXY"
           echo "PROXY_URL=http://$SELECTED_PROXY" >> $GITHUB_ENV
 
-      # Bước 5: Chạy k6 test bằng file k6 vừa build
+      # Bước 4: Chạy k6 test bằng file k6 vừa tải về
       - name: Run k6 test
         run: ./k6 run javascript/test.js
         env:
