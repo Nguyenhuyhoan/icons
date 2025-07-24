@@ -44,7 +44,7 @@ export const options = {
 export default function () {
   // ===================================================================
   // !!! THAY BẰNG URL WEBSITE CỦA BẠN !!!
-  const targetUrl = 'https://YOUR-OWN-WEBSITE.COM';
+  const targetUrl = 'https://applep12.com';
   // ===================================================================
 
   const res = http.get(targetUrl, {
