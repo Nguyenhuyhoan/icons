@@ -1,29 +1,56 @@
-// script.js
+
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
-// Cấu hình các giai đoạn của bài test
+
 export const options = {
-  stages: [
-    { duration: '20s', target: 15 }, // Tăng dần lên 15 người dùng ảo trong 20 giây
-    { duration: '40s', target: 15 }, // Giữ 15 người dùng ảo trong 40 giây
-    { duration: '10s', target: 0 },  // Giảm về 0 trong 10 giây
-  ],
-  thresholds: {
-    // Yêu cầu 95% request phải có status 200
-    'http_req_failed': ['rate<0.05'], 
-    'http_req_duration': ['p(95)<2000'], // 95% request phải hoàn thành dưới 2 giây
-  },
+
+stages: [
+
+{ duration: '5m', target: 7 },
+{ duration: '10m', target: 60 },
+{ duration: '5m', target: 120 },
+{ duration: '10m', target: 250 },
+{ duration: '10m', target: 370 },
+{ duration: '15m', target: 450 },
+{ duration: '15m', target: 520 },
+{ duration: '10m', target: 600 },
+{ duration: '5m', target: 690 },
+{ duration: '5m', target: 740 },
+{ duration: '10m', target: 890 },
+{ duration: '10m', target: 990 },
+{ duration: '15m', target: 1100 },
+{ duration: '15m', target: 1300 },
+{ duration: '10m', target: 1500 },
+{ duration: '2000m', target: 1500 },
+
+],
+
+
+thresholds: {
+
+'http_req_failed': ['rate<0.02'],
+
+'http_req_duration': ['p(95)<3000'],
+},
 };
 
-// Hàm chính, mỗi người dùng ảo sẽ lặp lại hàm này
+
 export default function () {
-  // Thay bằng URL website của bạn
-  const res = http.get('https://your-website.com'); 
 
-  // Kiểm tra xem request có thành công không (status code là 200)
-  check(res, { 'status was 200': (r) => r.status == 200 });
 
-  // Dừng 1 giây trước khi gửi request tiếp theo
-  sleep(1);
+
+const targetUrl = 'https://YOUR-OWN-WEBSITE.COM';
+
+
+const res = http.get(targetUrl);
+
+
+check(res, {
+'status is 200': (r) => r.status === 200,
+});
+
+
+
+sleep(Math.random() * 2 + 1);
 }
