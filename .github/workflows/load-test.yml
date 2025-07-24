@@ -1,5 +1,7 @@
 
-name: Load Test with k6 Browser and Random Proxy
+# .github/workflows/load-test.yml
+
+name: Load Test with k6 Browser and Random Proxy (Manual Build)
 on:
   workflow_dispatch:
 
@@ -8,16 +10,29 @@ jobs:
     name: Run k6 Browser Load Test
     runs-on: ubuntu-latest
     steps:
+      # Bước 1: Checkout code
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build k6 with xk6-browser extension
-        uses: k6io/get-xk6@v0.5.0
+      # Bước 2: Cài đặt môi trường Go
+      # Chúng ta cần Go để build k6 từ source
+      - name: Setup Go
+        uses: actions/setup-go@v5
         with:
-          version: v0.51.0
-          extensions: |
-            github.com/k6io/xk6-browser@latest
+          go-version: '1.21' # Phiên bản Go ổn định
 
+      # Bước 3: Tự build k6 với extension (thay thế cho action get-xk6)
+      - name: Manually build k6 with xk6-browser
+        run: |
+          echo "Installing xk6, the k6 extension builder..."
+          go install go.k6.io/xk6/cmd/xk6@latest
+          
+          echo "Building k6 with xk6-browser extension..."
+          # Lệnh này sẽ build k6 phiên bản v0.51.0 và thêm extension xk6-browser
+          # File thực thi 'k6' sẽ được tạo trong thư mục hiện tại
+          ~/go/bin/xk6 build v0.51.0 --with github.com/k6io/xk6-browser@latest
+
+      # Bước 4: Chọn Proxy ngẫu nhiên
       - name: Select a Random Proxy from the List
         id: select_proxy
         run: |
@@ -30,6 +45,7 @@ jobs:
           echo "Selected proxy for this run: $SELECTED_PROXY"
           echo "PROXY_URL=http://$SELECTED_PROXY" >> $GITHUB_ENV
 
+      # Bước 5: Chạy k6 test bằng file k6 vừa build
       - name: Run k6 test
         run: ./k6 run javascript/test.js
         env:
