@@ -40,7 +40,7 @@ export default function () {
 
 
 
-const targetUrl = 'https://YOUR-OWN-WEBSITE.COM';
+const targetUrl = 'https://applep12.com';
 
 
 const res = http.get(targetUrl);
