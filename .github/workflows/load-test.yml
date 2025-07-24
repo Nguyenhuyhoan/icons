@@ -29,6 +29,6 @@ jobs:
         uses: k6io/k6-action@v0.2.0
         with:
           # Đảm bảo tên file là 'script.js' và không có ký tự lạ
-          script: script.js 
+          script: script/script.js 
         env:
           K6_HTTP_PROXY: ${{ env.PROXY_URL }}
