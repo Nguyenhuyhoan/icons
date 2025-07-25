@@ -1,7 +1,4 @@
-
 name: PassWifi
-
-# <--- THÊM DÒNG NÀY VÀO FILE CỦA BẠN
 run-name: ${{ github.workflow }} - Wifi: ${{ github.event.inputs.target_url }}
 
 on:
