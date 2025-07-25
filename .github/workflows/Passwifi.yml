@@ -1,4 +1,4 @@
-name: Xtgem.com
+name: PassWifi
 on:
   workflow_dispatch:
 jobs:
