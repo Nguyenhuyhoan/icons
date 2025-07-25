@@ -1,7 +1,5 @@
 name: PassWifi
-
 run-name: ${{ github.event.inputs.target_url || 'Push Event' }}
-
 on:
   workflow_dispatch:
     inputs:
@@ -9,7 +7,6 @@ on:
         description: 'The Wifi to test, provided by the web UI'
         required: true
         default: 'Tên Wifi Mặc Định'
-
 jobs:
   certapple-run:
     name: Run Passwifi Test
@@ -17,7 +14,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
       - name: Run Passwifi test
         uses: grafana/k6-action@v0.3.1
         with:
