@@ -1,13 +1,16 @@
+
 name: PassWifi
+
+# <--- THÊM DÒNG NÀY VÀO FILE CỦA BẠN
+run-name: ${{ github.workflow }} - Wifi: ${{ github.event.inputs.target_url }}
+
 on:
   workflow_dispatch:
-    # ===== THÊM KHỐI NÀY ĐỂ NHẬN INPUT TỪ WEB =====
     inputs:
       target_url:
-        description: 'The URL to test, provided by the web UI'
+        description: 'The Wifi to test, provided by the web UI'
         required: true
-        default: 'http://example.com' # Giá trị mặc định phòng lỗi
-    # ============================================
+        default: 'Tên Wifi Mặc Định' # Giá trị này sẽ được ghi đè bởi trang web
 
 jobs:
   certapple-run:
@@ -16,13 +19,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
+
       - name: Run Passwifi test
         uses: grafana/k6-action@v0.3.1
         with:
           filename: 💹💹💹Passwifi.js
-        # ===== THÊM KHỐI NÀY ĐỂ TRUYỀN URL VÀO K6 =====
         env:
-          # Tạo biến môi trường TARGET_URL từ input 'target_url'
           TARGET_URL: ${{ github.event.inputs.target_url }}
-        # ===============================================
