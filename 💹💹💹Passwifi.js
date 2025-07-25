@@ -7,13 +7,9 @@ stages: [
 ],
 thresholds: {
 'http_req_duration': ['p(95)<800'],
-'http_req_failed': ['rate<0.01'],
-},
-};
+'http_req_failed': ['rate<0.01'],},};
 export default function () {
 const targetUrl = __ENV.TARGET_URL || 'https://google.com';
 const res = http.get(targetUrl);
 check(res, {
-'status is 200': (r) => r.status === 200,
-});
-}
+'status is 200': (r) => r.status === 200,});}
