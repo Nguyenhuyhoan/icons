@@ -1,6 +1,7 @@
 name: PassWifi
 
-run-name: ${{ github.workflow }} - Wifi: ${{ github.event.inputs.target_url }}
+# DÒNG NÀY ĐÃ ĐƯỢC SỬA LẠI ĐỂ CHỐNG LỖI
+run-name: ${{ github.event_name == 'workflow_dispatch' && format('Wifi: {0}', github.event.inputs.target_url) || format('Triggered by {0}', github.event_name) }}
 
 on:
   workflow_dispatch:
