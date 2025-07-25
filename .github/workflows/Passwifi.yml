@@ -24,11 +24,3 @@ jobs:
           filename: 💹💹💹Passwifi.js
         env:
           TARGET_URL: ${{ github.event.inputs.target_url }}
-
-Bước 4: DÁN nội dung vừa sao chép vào file đang trống trên GitHub.
-
-Bước 5: LƯU (COMMIT) LẠI THAY ĐỔI.
-
-Giải thích cho dòng run-name mới:
-
-run-name: ${{ github.event.inputs.target_url || 'Push Event' }}
