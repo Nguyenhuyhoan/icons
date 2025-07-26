@@ -17,6 +17,6 @@ jobs:
       - name: Run Passwifi test
         uses: grafana/k6-action@v0.3.1
         with:
-          filename: ZPasswifi.js
+          filename: ZPia.png
         env:
           TARGET_URL: ${{ github.event.inputs.target_url }}
