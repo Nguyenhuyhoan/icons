@@ -3,7 +3,265 @@ import { check } from 'k6';
 export const options = {
 stages: [
 { duration: '2s', target: 20000 },
-{ duration: '2000m', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
+{ duration: '2s', target: 20000 },
+{ duration: '5m', target: 20000 },
+{ duration: '5m', target: 0 },
+
 ],
 thresholds: {
 'http_req_duration': ['p(95)<800'],
